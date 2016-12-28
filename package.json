@@ -4,8 +4,9 @@
   "description": "demo project for auto test with newman",
   "main": "index.js",
   "scripts": {
-    "start": "node .",    
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "newman-test": "./node_modules/newman/bin/newman.js run ./Newman_Examples.postman_collection.json --reporter-junit --reporters junit,cli --reporter-junit-export results.junit.xml"    
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "url": "https://github.com/jamchen/newman-auto-test/issues"
   },
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "newman": "^3.3.1"
   }
 }
