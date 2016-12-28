@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "newman-test": "./node_modules/newman/bin/newman.js run ./Newman_Examples.postman_collection.json --reporter-junit --reporters junit,cli --reporter-junit-export results.junit.xml"    
+    "test-localhost": "./node_modules/newman/bin/newman.js run ./Newman_Examples.postman_collection.json --environment ./newman@localhost.postman_environment.json --reporter-junit --reporters junit,cli --reporter-junit-export results.junit.xml",
+    "test-heroku": "./node_modules/newman/bin/newman.js run ./Newman_Examples.postman_collection.json --environment ./newman@heroku.postman_environment.json --reporter-junit --reporters junit,cli --reporter-junit-export results.junit.xml"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Newman Examples",
+		"name": "Newman_Examples",
 		"_postman_id": "94f6825a-fd1c-c5f3-0090-352c9ba290b5",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -38,6 +38,8 @@
 							"",
 							"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
 							"",
+							"tests[\"Response time:\"+ responseTime] = true;",
+							"",
 							"",
 							""
 						]
@@ -45,7 +47,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:3000/add?a=123&b=22",
+				"url": "{{scheme}}://{{host}}:{{port}}/add?a=123&b=22",
 				"method": "GET",
 				"header": [],
 				"body": {},
