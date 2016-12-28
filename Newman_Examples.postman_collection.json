@@ -1,0 +1,57 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Newman Examples",
+		"_postman_id": "94f6825a-fd1c-c5f3-0090-352c9ba290b5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add?a=123&b=22",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var content_type = postman.getResponseHeader(\"Content-Type\");",
+							"tests[\"Content-Type is present\"] = content_type;",
+							"tests[\"Check Content-Type\"] = content_type === 'application/json; charset=utf-8';",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"// use tiny validator",
+							"var schema = {",
+							" \"type\" : \"object\",",
+							" \"properties\": {",
+							"    \"answer\": {",
+							"     \"type\": \"number\"",
+							"    }",
+							" }",
+							"};",
+							"",
+							"tests[\"Valid response schema\"] = tv4.validate(jsonData, schema);",
+							"",
+							"tests[\"Test Result\"] = jsonData.answer === 145;",
+							"",
+							"tests[\"Response time is less than 200ms\"] = responseTime < 200;",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:3000/add?a=123&b=22",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
